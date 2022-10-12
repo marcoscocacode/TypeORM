@@ -26,7 +26,7 @@ export class Banker extends Person {
       referencedColumnName: 'id'
     }
   })
-  clients: Client
+  clients: Client[]
 
   @CreateDateColumn()
   created_at: Date
