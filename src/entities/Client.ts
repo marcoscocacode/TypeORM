@@ -34,7 +34,7 @@ export class Client extends Person {
   family_members: string[]
 
   @ManyToMany(
-    () => Banker
+    () => Banker,
   )
   bankers: Banker[]
 

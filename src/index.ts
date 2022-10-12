@@ -4,8 +4,10 @@ import { createConnection } from 'typeorm'
 import { Banker } from './entities/Banker'
 import { Client } from './entities/Client'
 import { Transaction } from './entities/Transaction'
+import { fecthClientRouter } from './routes/fetch_clients'
 import { createBankerRouter } from './routes/create_banker'
 import { createClientRouter } from './routes/create_client'
+import { deleteLClientRouter } from './routes/delete_client'
 import { createTransactionRouter } from './routes/create_transaction'
 import { connectBankerClientRouter } from './routes/connect_banker_client'
 
@@ -26,8 +28,10 @@ const main = async () => {
     console.log("Connected to Postgres!")
 
     app.use(express.json())
+    app.use(fecthClientRouter)
     app.use(createClientRouter)
     app.use(createBankerRouter)
+    app.use(deleteLClientRouter)
     app.use(createTransactionRouter)
     app.use(connectBankerClientRouter)
 

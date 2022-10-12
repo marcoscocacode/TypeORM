@@ -27,6 +27,9 @@ export class Transaction extends BaseEntity {
   @ManyToOne( // Especifica a relação entre as tabelas.
     () => Client, 
     (client) => client.transactions, // Para funcionar precisa da especificação inversa na tabela correspondente
+    {
+      onDelete: "CASCADE" // Deleta em cascata todos os valores ligados a esse ID
+    }
   )
 
   @JoinColumn({ // Especifica o nome da Primery Key
